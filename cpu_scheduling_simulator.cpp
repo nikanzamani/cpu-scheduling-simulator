@@ -8,7 +8,6 @@ using namespace std;
 
 class process{
     public:
-    // string status;
     vi cpu_bursts;
     vi io_bursts;
     int total_time;
@@ -17,41 +16,11 @@ class process{
     int end_time;
     bool visited = false;
     int first_visit_time;
-    // process(int at,vi bursts);
 
 };
-// process::process(int at,vi bursts){
-//     total_time=0;
-//     arive_time=at;
-//     for (int i = 0; i < bursts.size(); i++){
-//         total_time+=bursts[i];
-//         if (i%2){
-//             io_bursts.push_back(bursts[i]);
-//         }
-//         else{
-//             cpu_bursts.push_back(bursts[i]);
-//         }
-        
-//     }
-    
-
-// }
 
 
-void initialize();
-void step_sim();
-
-
-// void FCFS();
-void SJF();
-void LJF();
 vector<int> RR(vector<process> &processes, int tq);
-void SRTF();
-void LRTF();
-void MQS();
-void MLFQ();
-
-void generate_testcase();
 
 
 // all CPU utilization
@@ -61,14 +30,8 @@ void generate_testcase();
 // proc Response Time
 
 
-// int main(int argc, char const *argv[])
 int main()
 {
-    // cout<<argc<<endl;
-    // for (int i = 0; i < argc; i++)
-    // {
-    //     cout<<argv[i]<<endl;
-    // }    
     int n;
     cin>>n;
     getchar();
@@ -136,41 +99,6 @@ int main()
 
     return 0;
 }
-
-// vector<int> FCFS(vector<process> processes){
-//     int time=0,n=processes.size();
-//     vi indices(n,0);
-//     // initialize(time,n,inde);
-//     queue<int> cpu;
-//     priority_queue<pair<int,int>> proc_handeler;
-//     for (int i = 0; i < n; i++){
-//         proc_handeler.push({processes[i].arive_time,i});
-//         processes[i].visited=false;
-//     }
-
-//     while (!proc_handeler.empty() || !cpu.empty())
-//     {
-//         if (cpu.empty()){
-            
-
-//         }
-//         auto p= cpu.front();cpu.pop();
-//         if (!processes[p].visited)
-//         {
-//             processes[p].visited=true;
-//             processes[p].first_visit_time=time;
-//         }
-        
-//         time+=processes[p].cpu_bursts[indices[p]];
-//         if (indices[p]+1<processes[p].cpu_bursts.size())
-//         {
-//             proc_handeler.push({time+processes[p].io_bursts[indices[p]],p});
-//             indices[p]+=1;
-//         }
-        
-
-//     }
-// };
 
 vector<int> RR(vector<process> &processes, int tq){
     int time=0,n=processes.size(),sim_start=INT_MAX;
